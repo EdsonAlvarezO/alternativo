@@ -1,0 +1,16 @@
+.label{
+	color: black;
+	margin: 4px;
+}
+input:focus,textarea:focus{
+	background-color: #BCBDBF;
+}
+#mi_nav{
+	background-image: linear-gradient(to right top, #42a4c6, #73b8d0, #9dcddc, #c4e1e8, #ebf5f7);
+}
+#btn_next{
+	display: flex;
+	justify-content: flex-end;
+	height: 65px;
+	align-items: flex-end;
+}
