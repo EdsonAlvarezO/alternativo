@@ -25,6 +25,7 @@ require_once './shared/sessions.php';
       <div class="columns is-centered">
         <div class="column is-5-tablet is-4-desktop is-3-widescreen">
           <form method="POST" class="box">
+            <h1 class="help is-danger"><?php echo $errors ?? '' ?></h1>
             <div class="field has-text-centered is-italic ">
               <h1 class="is-size-2">Login</h1>
             </div>
