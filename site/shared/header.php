@@ -8,6 +8,7 @@ require_once './shared/sessions.php';
 	<link rel="stylesheet" type="text/css" href="./css/bulma.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </head>
 <body>
 <nav class="navbar" id="mi_nav" role="navigation" aria-label="main navigation">
