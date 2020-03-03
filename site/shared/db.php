@@ -4,7 +4,7 @@ require_once 'vendor/autoload.php';
 
 use crojasaragonez\UtnDb\PgConnection;
 
-$con = new PgConnection('postgres', 'edson2018', 'isw', 5432, 'localhost');
+$con = new PgConnection('postgres', 'edson2018', 'proyecto_web', 5432, 'localhost');
 $con->connect();
 /*
 $sql = "INSERT INTO users(email, password) VALUES ($1, md5($2))";

@@ -2,11 +2,7 @@
 require_once './shared/header.php';
 require_once './shared/db.php';
 ?>
-<section class="section">
-    <div class="container">
-        <h1 class="title">
-            Sign Up
-        </h1>
+<section class="hero is-dark is-fullheight">
 
 <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -15,65 +11,64 @@ require_once './shared/db.php';
         $co_password = $_POST['co_password'] ?? '';
         $errors = '';
         if($password == $co_password){
-            $sql = "INSERT INTO users(email, password) VALUES ($1, md5($2))";
-            $con->runStatement($sql, [$email, $password]);
-            header('Location: /page_1.php');
-            exit();
+            if (strlen($password) >= 5) {
+                $sql = "INSERT INTO users(email, password) VALUES ($1, md5($2))";
+                $con->runStatement($sql, [$email, $password]);
+                header('Location: /');
+                exit();
+            }else{
+                $errors = 'Password must have 5 characters';
+            }
         }else{
-            $errors = 'las contrase;s no coinsiden';
+            $errors = 'Passwords do not match';
         }
     }
  ?>
-
-        <form method="POST">
-            <h1 class="help is-danger"><?= $errors ?></h1>
-            <div class="field">
-                <label class="label">Email</label>
-                <div class="control has-icons-left has-icons-right">
-                    <input class="input" name="email" type="email" placeholder="Email input" value="<?= $email ?? '' ?>">
+    <div class="hero-body">
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+              <form method="POST" class="box">
+                <h1 class="help is-danger"><?php echo $errors ?></h1>
+                <div class="field">
+                  <label for="" class="label">Email</label>
+                  <div class="control has-icons-left">
+                    <input type="email" name="email" class="input" value="<?= $email ?? '' ?>" required>
                     <span class="icon is-small is-left">
-                        <i class="fas fa-envelope"></i>
+                      <i class="fa fa-envelope"></i>
                     </span>
-                    <span class="icon is-small is-right">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </span>
+                  </div>
                 </div>
-            </div>
-
-            <div class="field">
-                <label class="label">Password</label>
-                <div class="control has-icons-left has-icons-right">
-                    <input class="input" name="password" type="password"  value="">
+                <div class="field">
+                  <label for="" class="label">Password</label>
+                  <div class="control has-icons-left">
+                    <input name = "password" type="password" placeholder="*******" class="input" required>
                     <span class="icon is-small is-left">
-                        <i class="fas fa-lock"></i>
+                      <i class="fa fa-lock"></i>
                     </span>
-                    <span class="icon is-small is-right">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </span>
+                  </div>
                 </div>
+                 <div class="field">
+                    <label class="label">Confirm password</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" name="co_password" placeholder="*******" type="password" value="">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link">Submit</button>
+                    </div>
+                    <div class="control">
+                        <a class="button is-link is-light" href="/">Cancel</a>
+                    </div>
+                </div>
+              </form>
             </div>
-             <div class="field">
-                <label class="label">Confirm password</label>
-                <div class="control has-icons-left has-icons-right">
-                    <input class="input" name="co_password" type="password" value="">
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-lock"></i>
-                    </span>
-                    <span class="icon is-small is-right">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </span>
-                </div>
-            </div>
-
-            <div class="field is-grouped">
-                <div class="control">
-                    <button class="button is-link">Submit</button>
-                </div>
-                <div class="control">
-                    <button class="button is-link is-light">Cancel</button>
-                </div>
-            </div>
-        </form>
+          </div>
+        </div>
     </div>
 </section>
 <?php require_once './shared/footer.php' ?>
