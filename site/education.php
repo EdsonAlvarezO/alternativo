@@ -3,28 +3,25 @@ require_once './shared/header.php';
 require_once './shared/guard.php';
 require_once './shared/db.php';
 ?>
-<link rel="stylesheet" type="text/css" href="./css/style.css">
 <?php  
 	$id_curriculum = $_GET['id_curriculum'];
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-		if (isset($_POST['add_company'])) {
-			$company = $_POST['company'] ?? '';
-			$position_work = $_POST['position_work'] ?? '';
+		if (isset($_POST['add_degree'])) {
+			$degree = $_POST['degree'] ?? '';
 			$time_period = ((string)$_POST['timeperiod_1'] ."/". (string)$_POST['timeperiod_2']) ?? '';
 			$description = $_POST['description'] ?? '';
 			$website = $_POST['website'] ?? '';
 			$errors = '';
-			$sql = 'insert into companys(id_curriculum, company_name, position_company, time_period, description_company, website) VALUES ($1,$2,$3,$4,$5,$6)';
-			$results = $con->runStatement($sql,[(int)$id_curriculum,$company, $position_work,$time_period,$description,$website]);
+			$sql = 'insert into degrees (id_curriculum, degree, time_period, description, website) VALUES ($1,$2,$3,$4,$5)';
+			$results = $con->runStatement($sql,[(int)$id_curriculum,$degree,$time_period,$description,$website]);
 			    if ($results) {
-			        $company = '';
-					$position_work = '';
+			        $degree = '';
 					$time_period =  '';
 					$description =  '';
 					$website = '';
 			    } 
-		}else if(isset($_POST['next_page'])){
-			 header("Location: ./education.php?id_curriculum=$id_curriculum");
+		}else{
+			 header("Location: ./skills.php?id_curriculum = $id_curriculum");
 		}	    
 	}
 ?>
@@ -32,24 +29,20 @@ require_once './shared/db.php';
 	<form method="POST">
 			<div class="columns is-multiline is-centered is-scrollable">
 				<div class="column is-half">
-					  		 	  <h1 id="title">Experience</h1>
-								  <label class="label">Company</label>
+					  		 	  <h1 id="title">Education</h1>
+								  <label class="label">Degree</label>
 								  <div class="control">
 								  	<p><?php $curriculum_id ?></p>
-								    <input class="input" type="text" value="<?= $company ?? '' ?>" name="company" required>
+								    <input class="input" type="text" value="<?= $degree ?? '' ?>" name="degree" required>
 								  </div>
-								  <label class="label">Position</label>
-								  <div class="control">
-								    <input class="input" type="text" value="<?= $position_work ?? '' ?>" name = "position_work" required>
-								  </div>
-								  <label class="label">Time period</label>
+								  <label class="label">Time-period</label>
 								  <div class="control" id="fechas">
 								  	<div>
-								  		<label class="label">Start year:</label>
+								  		<label class="label">De:</label>
 								  		<div class= "is-half">
 								  		 	<input class="input" type="date" name = "timeperiod_1" required>
 								  		</div>
-								  		<label class="label">Finish year:</label>
+								  		<label class="label">A:</label>
 								  		<div class= "is-half">
 								  			<input class="input" type="date" name = "timeperiod_2" required>
 								  		</div>
@@ -65,7 +58,7 @@ require_once './shared/db.php';
 								  </div>
 								  <div class="control has-text-right"> 
 								  	<div  id="btn_add">
-								  		 <button class="button" name='add_company'>Add company</button>
+								  		 <button class="button" name='add_degree'>Add</button>
 								  	</div>
 								  </div>
 		        </div> 
@@ -74,7 +67,7 @@ require_once './shared/db.php';
 	<div id="btn_next_ex">
 		<form method="POST">
 			<div >
-				<button class="button" name="next_page">Next page</button>
+				<button class="button" name="go_skills" >Next page</button>
 			</div>
 		</form>
 	</div>

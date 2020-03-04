@@ -34,3 +34,10 @@ input:focus,textarea:focus{
 	font-size: 20px;
 	font-style: italic;
 }
+#btn_next_ex{
+	display: flex;
+	justify-content: center;
+}
+#fechas{
+	margin: 17px;
+}
