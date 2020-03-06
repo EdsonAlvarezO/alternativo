@@ -24,52 +24,29 @@ require_once './shared/db.php';
         }
     }
  ?>
-    <div class="hero-body">
-        <div class="container">
-          <div class="columns is-centered">
-            <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-              <form method="POST" class="box">
-                <h1 class="help is-danger"><?php echo $errors ?></h1>
-                <div class="field">
-                  <label for="" class="label">Email</label>
-                  <div class="control has-icons-left">
-                    <input type="email" name="email" class="input" value="<?= $email ?? '' ?>" required>
-                    <span class="icon is-small is-left">
-                      <i class="fa fa-envelope"></i>
-                    </span>
-                  </div>
-                </div>
-                <div class="field">
-                  <label for="" class="label">Password</label>
-                  <div class="control has-icons-left">
-                    <input name = "password" type="password" placeholder="*******" class="input" required>
-                    <span class="icon is-small is-left">
-                      <i class="fa fa-lock"></i>
-                    </span>
-                  </div>
-                </div>
-                 <div class="field">
-                    <label class="label">Confirm password</label>
-                    <div class="control has-icons-left has-icons-right">
-                        <input class="input" name="co_password" placeholder="*******" type="password" value="">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                    </div>
-                </div>
-                <div class="field is-grouped">
-                    <div class="control">
-                        <button class="button is-link">Submit</button>
-                    </div>
-                    <div class="control">
-                        <a class="button is-link is-light" href="/">Cancel</a>
-                    </div>
-                </div>
-              </form>
-            </div>
-          </div>
+ <div class="logform">
+  <form class="form-lognin" method="POST">
+        <h1 class="h3 mb-3 font-weight-normal" id="titlelog">SIGN IN</h1>
+        <div class=form-control>
+          <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" value="<?= $email ?? '' ?>" required="" autofocus="">
         </div>
-    </div>
+        <div class=form-control>
+          <input type="password" name = "password" type="password" placeholder="Password" id="inputPassword" class="form-control" placeholder="Password" required="">
+        </div>
+        <div class=form-control>
+          <input type="password" name = "co_password" type="password" placeholder="Confirm password" id="inputPassword" class="form-control" placeholder="Password" required="">
+        </div>
+        <div class=form-control>
+          <button class="btn btn-lg btn-primary btn-block btn-sm" type="submit">SIGN IN</button>
+          <button class="btn btn-lg btn-secondary btn-block btn-sm" href="/">CANCEL</button>
+          <?php if(!empty($errors)){ ?>
+            <div class="alert alert-danger" role="alert" id="alerta_log">
+                <?php echo $errors ?>
+            </div>
+          <?php } ?>
+        </div>
+  </form>
+</div>
 </section>
 <?php require_once './shared/footer.php' ?>
 

@@ -1,15 +1,14 @@
-.label{
-	color: black;
-	margin: 4px;
-}
 input:focus,textarea:focus{
 	background-color: #BCBDBF;
 }
+label{
+	margin: 5px;
+}
+body{
+	background-color: black;
+}
 .button{
 	background-color:#CFF5E4;
-}
-#mi_nav{
-	background-image: linear-gradient(to right top, #42a4c6, #73b8d0, #9dcddc, #c4e1e8, #ebf5f7);
 }
 #btn_next_cu{
 	display: flex;
@@ -25,8 +24,8 @@ input:focus,textarea:focus{
 }
 #btn_add{
 	display: flex;
-	justify-content: flex-start;
-	margin: 5px;
+	margin: 6px;
+	justify-content: flex-end;
 }
 #title{
 	display: flex;
@@ -36,8 +35,95 @@ input:focus,textarea:focus{
 }
 #btn_next_ex{
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
+	width: 80%;
 }
+#btn_next_edu{
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+}
+
 #fechas{
 	margin: 17px;
+}
+#logo{
+	width: 60px;
+	height: 40px;
+}
+.form-lognin {
+ 	width: 100%;
+ 	max-width: 330px;
+ 	padding: 15px;
+ 	margin: 0 auto;
+ 	color: #fff;
+}
+.form-lognin.checkbox {
+  font-weight: 400;
+}
+.form-lognin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-lognin .form-control:focus {
+  z-index: 2;
+}
+.form-lognin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-lognin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.logform{
+	display: flex;
+	height: 560px;
+	align-items: center;
+}
+#titlelog{
+	text-align: center;
+	color: black;
+	font-style: oblique;
+}
+#alerta_log{
+	margin: 4px;
+}
+#e{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 450px;
+	color: #fff;
+}
+#exp{
+	display: flex;
+	justify-content: center;
+	height: 800px;
+	align-items: center;
+	color: #fff;
+}
+#skills{
+	display: flex;
+	justify-content: center;
+	height: 600px;
+	align-items: center;
+	width: 40%;
+}
+#skilsall{
+	display: flex;
+	justify-content: center;
+	height: 600px;
+	align-items: center;
+	color: #fff;
+}
+#mydegress{
+	display: flex;
+	flex-wrap: wrap;
+	color: #fff;
 }
