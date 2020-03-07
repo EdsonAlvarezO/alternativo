@@ -5,76 +5,37 @@ require_once './shared/sessions.php';
 <html>
 <head>
 	<title><?= $title ?? 'Page' ?></title>
-	<link rel="stylesheet" type="text/css" href="./css/bulma.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </head>
 <body>
-<nav class="navbar" id="mi_nav" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand" >
-    <a class="navbar-item" href="/">
-      <img src="./imgs/hr.png" >
-    </a>
-
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mi_nav">
+  <a class="navbar-brand" href="/" >
+    <img src="./logos/hr.png" id="logo">
+  </a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Curriculum Vitae <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
   </div>
-
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-
-<?php
-$menu = [
-  ['name' => 'Curriculum Vitae', 'url' => '/curriculums.php'],
-];
-if (isset($_SESSION['user_id'])){
-foreach ($menu as $link) {
-  if (array_key_exists('sub_menus', $link)) {
-    ?>
-    <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          <?= $link['name'] ?>
-        </a>
-
-        <div class="navbar-dropdown">
-          <?php
-            foreach ($link['sub_menus'] as $sub_menu) {
-              echo "<a class='navbar-item' href='" . $sub_menu['url'] . "'>" . $sub_menu['name'] . "</a>";
-            }
-           ?>
-        </div>
-      </div>
-    <?php
-  } else {
-    echo "<a class='navbar-item' href='" . $link['url'] . "'>" . $link['name'] . "</a>";
-  }
-}
-}
-?>
-    </div>
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <?php if (isset($_SESSION['user_id'])) { ?>
-              <label><?= $_SESSION['user_email'] ?></label>
-              <a class="button is-dark" style="margin: 2px;" href="/logout.php">
+  <form class="form-inline">
+    <?php if (isset($_SESSION['user_id'])) { ?>
+            <label><?= $_SESSION['user_email'] ?></label>
+            <a class="btn btn-secondary" href="/logout.php">
                 Log out
-              </a>
+            </a>
           <?php } else { ?>
-            <a class="button is-dark" href="/register.php">
+            <a class="btn btn-secondary" href="/register.php">
               <strong>Sign up</strong>
             </a>
-            <a class="button is-dark" href="/">
+            <a class="btn btn-secundary" href="/">
               Log in
             </a>
           <?php } ?>
-        </div>
-      </div>
-    </div>
-  </div>
+  </form>
 </nav>
 </body>
