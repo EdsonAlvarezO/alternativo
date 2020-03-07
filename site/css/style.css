@@ -151,4 +151,13 @@ body{
 #btn_finalizar{
 	display: flex;
 	justify-content: flex-end;
+}
+.almacen{
+	display:flex;
+	justify-content: center;
 }	
+#btn_next_pic{
+	display: flex;
+	justify-content: flex-end;
+	width: 60%;
+}
