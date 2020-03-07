@@ -18,7 +18,7 @@ require_once './shared/db.php';
 					$level =  '';
 			    } 
 		}else{
-			 header("Location: ./projects.php?id_curriculum = $id_curriculum");
+			 header("Location: ./projects.php?id_curriculum=$id_curriculum");
 		}	    
 	}
 ?>

@@ -115,6 +115,16 @@ body{
 	align-items: center;
 	width: 40%;
 }
+#myPanel{
+	background-color: black;
+}
+#pictureAll{
+	background-color: black;
+}
+.all{
+	background-color: black;
+	margin: 50px;
+}
 #skilsall{
 	display: flex;
 	justify-content: center;
@@ -127,3 +137,18 @@ body{
 	flex-wrap: wrap;
 	color: #fff;
 }
+#myImage{
+	width: 850px;
+	height: 450px;
+	margin: 20px;
+}
+.panel-title{
+	color: #fff;
+}
+.panel-body{
+	color: #fff;
+}
+#btn_finalizar{
+	display: flex;
+	justify-content: flex-end;
+}	

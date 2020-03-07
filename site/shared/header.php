@@ -13,7 +13,7 @@ require_once './shared/sessions.php';
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mi_nav">
   <a class="navbar-brand" href="/" >
-    <img src="./imgs/hr.png" id="logo">
+    <img src="./logos/hr.png" id="logo">
   </a>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">

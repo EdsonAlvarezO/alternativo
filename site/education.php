@@ -22,7 +22,6 @@ require_once './shared/db.php';
 					$website = '';
 			    } 
 		}else{
-			echo "<progress class='progress is-small is-primary' max='100'>15%</progress>";
 			 header("Location: ./skills.php?id_curriculum=$id_curriculum");
 		}	    
 	}
