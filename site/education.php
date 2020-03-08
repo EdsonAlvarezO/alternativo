@@ -22,7 +22,7 @@ require_once './shared/db.php';
 					$website = '';
 			    } 
 		}else{
-			 header("Location: ./skills.php?id_curriculum=$id_curriculum");
+			header("Location: ./skills.php?id_curriculum=$id_curriculum");
 		}	    
 	}
 ?>

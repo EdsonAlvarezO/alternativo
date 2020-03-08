@@ -1,5 +1,7 @@
 {
     "require": {
-        "crojasaragonez/utn-db": "^1.0"
+        "crojasaragonez/utn-db": "^1.0",
+        "ext-gd": "*",
+        "mpdf/mpdf": "^8.0"
     }
 }

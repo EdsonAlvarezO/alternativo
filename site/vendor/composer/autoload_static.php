@@ -6,17 +6,53 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitea96223385eeb368da7243fe6661aa2a
 {
+    public static $files = array (
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
+        's' => 
+        array (
+            'setasign\\Fpdi\\' => 14,
+        ),
         'c' => 
         array (
             'crojasaragonez\\UtnDb\\' => 21,
         ),
+        'P' => 
+        array (
+            'Psr\\Log\\' => 8,
+        ),
+        'M' => 
+        array (
+            'Mpdf\\' => 5,
+        ),
+        'D' => 
+        array (
+            'DeepCopy\\' => 9,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'setasign\\Fpdi\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/setasign/fpdi/src',
+        ),
         'crojasaragonez\\UtnDb\\' => 
         array (
             0 => __DIR__ . '/..' . '/crojasaragonez/utn-db/src',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Mpdf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
+        ),
+        'DeepCopy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
     );
 
