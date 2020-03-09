@@ -2,6 +2,7 @@
     "require": {
         "crojasaragonez/utn-db": "^1.0",
         "ext-gd": "*",
-        "mpdf/mpdf": "^8.0"
+        "mpdf/mpdf": "^8.0",
+        "twbs/bootstrap": "4.3.1"
     }
 }

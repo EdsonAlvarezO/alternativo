@@ -95,3 +95,15 @@ a#pdf:hover { background: #222; }
 	display: flex;
 	justify-content: flex-end;
 }
+#btn{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 40px;
+  margin-right: 20px;
+  height: 40%;
+}
+#btn_next{
+  background-color: transparent;
+  border-color: transparent;
+  color: green;
+}
