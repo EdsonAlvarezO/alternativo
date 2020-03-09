@@ -43,7 +43,7 @@ include __DIR__ .  '/bd_curri.php';
         <div class="paper-top"></div>
         <div id="paper-mid">
           <div class="entry">
-            <img class="portrait" src="<?php echo $image[0]['url'] ?>" alt="John Smith" />
+            <img class="portrait" src="<?php echo $image[0]['url'] ?>"/>
             <div class="self">
               <div class="arrow-right"></div>
               <h1 class="name"><?php echo $info_personal[0]['name_user']." ".$info_personal[0]['middle_name']." ".$info_personal[0]['last_name'] ?><br />

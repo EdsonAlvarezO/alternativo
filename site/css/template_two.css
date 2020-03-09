@@ -92,7 +92,6 @@ blockquote, q {
 }
 
 #paper-mid {
-  width:828px;
   margin:0 auto;
   background-repeat:repeat-y;
   display:block;
@@ -662,7 +661,6 @@ label.error {
 .all_template{
   display: flex;
   justify-content: center;
-  background-color: green;
 }
 #btn{
   display: flex;

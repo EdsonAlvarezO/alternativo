@@ -42,6 +42,7 @@ include __DIR__ .  '/bd_curri.php';
 									<div id="myimage">
 										<div class="position">
 											<h1><?php echo $info_personal[0]['name_user']." ".$info_personal[0]['middle_name']." ".$info_personal[0]['last_name'] ?></h1>
+											<img src="<?php echo $image[0]['url'] ?>" id="img">
 											<h2><?php echo $info_personal[0]['position_user'] ?></h2>
 											<h5>Email:<?php echo $info_contact[0]['email'] ?></h5>
 											<h5>Phone:<?php echo $info_contact[0]['phone'] ?></h5>
@@ -50,7 +51,7 @@ include __DIR__ .  '/bd_curri.php';
 											<h5>Website:<?php echo $info_contact[0]['website'] ?></h5>
 											<h5>Github:<?php echo $info_contact[0]['github'] ?></h5>
 										</div>
-											<img src="<?php echo $image[0]['url'] ?>" id="img">
+											
 									</div>
 							</div>
 						</div>
@@ -67,10 +68,7 @@ include __DIR__ .  '/bd_curri.php';
 											</p>
 										</div>
 									</div>
-									<div class="container">
-										<div class="row">
-											<div class="col-sm">
-												<div class="yui-gf">
+										<div class="yui-gf">
 													<div class="yui-u first">
 														<h2 class="title">Skills</h2>
 													</div>
@@ -85,9 +83,7 @@ include __DIR__ .  '/bd_curri.php';
 																</div>
 															<?php } ?>
 													</div>
-												</div>
-											</div>
-										<div class="col-sm">	
+										</div>	
 											<div class="yui-gf">
 											<div class="yui-u first">
 														<h2 class="title">Hobbies</h2>
@@ -98,15 +94,10 @@ include __DIR__ .  '/bd_curri.php';
 																	<h2>Hobbie: <?php echo $hobbie['name_hobbie'] ?></h2>
 																	<h3>URL: <?php echo $hobbie['url'] ?></h3>
 															</div>
+															<p>-------------------------------------------------------------</p>
 														<?php } ?>
 												</div>
 											</div>
-										</div>
-										</div>
-									</div>
-									<div class="container">
-										<div class="row">
-											<div class="col-sm">
 												<div class="yui-gf">
 													<div class="yui-u first">
 															<h2 class="title">Projects</h2>
@@ -119,11 +110,10 @@ include __DIR__ .  '/bd_curri.php';
 																		<h3>Description: <?php echo $project['description'] ?></h3>
 																		<h3>URL: <?php echo $project['url'] ?></h3>
 																</div>
+																<p>-------------------------------------------------------------</p>
 															<?php } ?>
 													</div>
 												</div>
-											</div>
-											<div class="col-sm">
 												<div class="yui-gf">
 													<div class="yui-u first">
 															<h2 class="title">Experience</h2>
@@ -137,15 +127,10 @@ include __DIR__ .  '/bd_curri.php';
 																<h3>Description: <?php echo $exp['description_company'] ?></h3>
 																<h3>Websites: <?php echo $exp['website'] ?></h3>
 															</div>
+															<p>-------------------------------------------------------------</p>
 														<?php } ?>
 													</div>
 												</div>
-											</div>	
-										</div>
-									</div>
-									<div class="container">
-										<div class="row">
-											<div class="col-sm">
 												<div class="yui-gf">
 													<div class="yui-u first">
 															<h2 class="title">Contributions</h2>
@@ -157,11 +142,10 @@ include __DIR__ .  '/bd_curri.php';
 																	<h3>Description: <?php echo $cont['description'] ?></h3>
 																	<h3>URL: <?php echo $cont['url'] ?></h3>
 															</div>
+															<p>-------------------------------------------------------------</p>
 														<?php } ?>
 													</div>
 												</div>
-											</div>
-											<div class="col-sm">
 												<div class="yui-gf">
 													<div class="yui-u first">
 															<h2 class="title">Education</h2>
@@ -177,9 +161,6 @@ include __DIR__ .  '/bd_curri.php';
 														<?php } ?>
 													</div>
 												</div>
-											</div>	
-									</div>
-									</div>
 								</div>
 							</div>
 						</div>

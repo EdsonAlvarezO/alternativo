@@ -13,7 +13,8 @@ require_once  './shared/guard.php';
 									<div class='yui-gc'>
 											<div id='myimage'>
 												<div class='position'>
-													<h1>".$info_personal[0]['name_user'].$info_personal[0]['middle_name'].$info_personal[0]['last_name']."</h1>
+													<h1>".$info_personal[0]['name_user'].' '.$info_personal[0]['middle_name'].' '.$info_personal[0]['last_name']."</h1>
+													<img src=".$image[0]['url']." id='img'>
 													<h2>".$info_personal[0]['position_user']."</h2>
 													<h5>Email:".$info_contact[0]['email'] ."</h5>
 													<h5>Phone:".$info_contact[0]['phone'] ."</h5>
@@ -22,7 +23,6 @@ require_once  './shared/guard.php';
 													<h5>Website:".$info_contact[0]['website'] ."</h5>
 													<h5>Github:".$info_contact[0]['github'] ."</h5>
 												</div>
-													<img src=".$image[0]['url']." id='img'>
 											</div>
 									</div>
 								</div>
@@ -170,9 +170,7 @@ require_once  './shared/guard.php';
 		return $template_one;
 	}
 	function getTemplate_Two($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects){
-		$template = '<link type="text/css" rel="stylesheet" href="css/template_two.css" />'.'<div id="btn">
-</div>
-<div class="all_template">
+		$template = '
   <div class="template">
   <div id="wrapper">
     <div class="wrapper-top"></div>
@@ -180,7 +178,7 @@ require_once  './shared/guard.php';
         <div class="paper-top"></div>
         <div id="paper-mid">
           <div class="entry">
-            <img class="portrait" src="'.$image[0]['url'] .'" styles="width: 10%" alt="John Smith" />
+            <img class="portrait" src="'.$image[0]['url'] .'"alt="John Smith" />
             <div class="self">
               <div class="arrow-right"></div>
               <h1 class="name">'.$info_personal[0]['name_user']." ".$info_personal[0]['middle_name']." ".$info_personal[0]['last_name'] .'<br />
@@ -285,8 +283,7 @@ require_once  './shared/guard.php';
     </div>
     <div class="wrapper-bottom"></div>
   </div>
-  </div>
-</div>';
+  </div>';
 
 		return $template;
 	}
