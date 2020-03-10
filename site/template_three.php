@@ -1,5 +1,5 @@
 <?php 
-require_once './shared/header.php';
+require_once  './shared/header.php';
 require_once  './shared/guard.php';
 require_once  './shared/db.php';
 ?>
@@ -7,10 +7,12 @@ require_once  './shared/db.php';
     $id_user = $_SESSION['user_id'];
     $id_curriculum = $_GET['id_curriculum'];
       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (isset($_POST['createPDF'])) {
+            if (isset($_POST['pdf'])) {
                     header("Location: ./pdf.php?id_curriculum=$id_curriculum&template=3");
-              }else if(isset($_POST['sendEmail'])){
+              }else if(isset($_POST['sendMail'])){
                     header("Location: ./enviar_correo.php?id_curriculum=$id_curriculum&template=3");
+              }else if(isset($_POST['next_temp'])){
+                header("Location: ./template_4.php?id_curriculum=$id_curriculum");
               }else{
                 header("Location: ./template_two.php?id_curriculum=$id_curriculum");
               }
@@ -26,30 +28,35 @@ require_once  './shared/db.php';
     $info_projects = $con->runQuery('SELECT * FROM projects WHERE id_curriculum >= $1', [$id_curriculum]);
 ?>
 <link href="css/template_three.css" rel="stylesheet">
+  <form method="post" id="btn">
+    <div id="all_but">
+      <button id="btn_next" class="btn btn-primary" name="pre_temp">Previous Template</button>
+    </div>
+    <div id="all_but">
+      <button id="pre_tem" class="btn btn-primary" name="next_temp">Next template</button>
+    </div>
+  </form>
   <body id="top">
     <div class="page-content">
-      <div>
+ <div>
 <div class="profile-page">
   <div class="wrapper">
     <div class="page-header page-header-small" filter-color="green">
+       <div id="miimagen">
+            <div class="cc-profile-image"><a href="#"><img src="<?php echo $image[0]['url'] ?>" id="img"></a></div>
+          </div>
       <div class="page-header-image" data-parallax="true"></div>
       <div class="container">
         <div class="content-center">
-          <div class="cc-profile-image"><a href="#"><img src="<?php echo $image[0]['url'] ?>" id="img"></a></div>
+          
           <div class="h2 title"><?php echo $info_personal[0]['name_user']." ".$info_personal[0]['middle_name']." ".$info_personal[0]['last_name'] ?></div>
-          <p class="category text-white"><h2><?php echo $info_personal[0]['position_user'] ?></h2>
+          <p class="category text-white"><h2 id="position"><?php echo $info_personal[0]['position_user'] ?></h2>
           </p>
           <form method="post">
             <button class="btn btn-primary smooth-scroll mr-2" name="sendMail" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Send Mail</button>
             <button class="btn btn-primary" data-aos="zoom-in" name="pdf" data-aos-anchor="data-aos-anchor">Download PDF</button>
           </form>
-        </div>
-      </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="section" id="about">
+          <div class="section" id="about">
   <div class="container">
     <div class="card" data-aos="fade-up" data-aos-offset="10">
       <div class="row">
@@ -92,6 +99,16 @@ require_once  './shared/db.php';
     </div>
   </div>
 </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
 <div class="section" id="skill">
   <div class="container">
     <div class="h4 text-center mb-2 title">Professional Skills</div>
@@ -99,9 +116,10 @@ require_once  './shared/db.php';
           <div class="col-md-6">
             <?php foreach ($info_skills as $skill) {?>
               <div class="progress-container progress-primary"><span class="progress-badge"><?php echo $skill['name'] ?></span>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $skill['level'] ?>%; margin-top: 2%; background-color: #401E33;"></div><span class="progress-value">80%</span>
-                </div>
+                 <div class="progress">
+                        <div class="progress-bar progress-bar-primary aos-init aos-animate" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $skill['level'] ?>%;">
+                        </div><span class="progress-value"><?php echo $skill['level'] ?>%</span>
+                      </div>
               </div>
               <?php } ?>
         </div>
@@ -188,8 +206,7 @@ require_once  './shared/db.php';
               </div>
               <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
                 <div class="card-body">
-                  <div class="h5"><?php echo $degree['description'] ?></div>
-                  <p class="category">University of Computer Science</p>
+                  <p >Description:<?php echo $degree['description'] ?></p>
                   <p><?php echo $degree['website'] ?></p>
                 </div>
               </div>
@@ -213,7 +230,6 @@ require_once  './shared/db.php';
               <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
                 <div class="card-body">
                   <div class="h5"><?php echo $degree['description'] ?></div>
-                  <p class="category">University of Computer Science</p>
                   <p><?php echo $degree['website'] ?></p>
                 </div>
               </div>
@@ -224,3 +240,4 @@ require_once  './shared/db.php';
 </div>
 </div>
     </div>
+</body>

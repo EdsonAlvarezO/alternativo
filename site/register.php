@@ -10,18 +10,23 @@ require_once './shared/db.php';
         $password = $_POST['password'] ?? '';
         $co_password = $_POST['co_password'] ?? '';
         $errors = '';
-        if($password == $co_password){
-            if (strlen($password) >= 5) {
-                $sql = "INSERT INTO users(email, password) VALUES ($1, md5($2))";
-                $con->runStatement($sql, [$email, $password]);
-                header('Location: /');
-                exit();
-            }else{
-                $errors = 'Password must have 5 characters';
-            }
-        }else{
-            $errors = 'Passwords do not match';
-        }
+        $results = $con->runQuery('SELECT * FROM users WHERE email = $1', [$email]);
+        if(!$results){
+          if($password == $co_password){
+              if (strlen($password) >= 5) {
+                  $sql = "INSERT INTO users(email, password) VALUES ($1, md5($2))";
+                  $con->runStatement($sql, [$email, $password]);
+                  header('Location: /');
+                  exit();
+              }else{
+                  $errors = 'Password must have 5 characters';
+              }
+          }else{
+              $errors = 'Passwords do not match';
+          }
+      }else{
+        $errors = 'Existing user';
+      }
     }
  ?>
  <div class="logform">
@@ -37,7 +42,7 @@ require_once './shared/db.php';
           <input type="password" name = "co_password" type="password" placeholder="Confirm password" id="inputPassword" class="form-control" placeholder="Password" required="">
         </div>
         <div class=form-control>
-          <button class="btn btn-lg btn-primary btn-block btn-sm" type="submit">SIGN IN</button>
+          <button class="btn btn-lg btn-success btn-block btn-sm" type="submit">SIGN IN</button>
           <button class="btn btn-lg btn-secondary btn-block btn-sm" href="/">CANCEL</button>
           <?php if(!empty($errors)){ ?>
             <div class="alert alert-danger" role="alert" id="alerta_log">

@@ -20,6 +20,12 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   vertical-align: baseline;
   color: #fff;
 }
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    width: 100%;
+}
 :focus {
   outline: 0;
 }
@@ -46,7 +52,10 @@ blockquote, q {
 .clear {
   clear:both;
 }
-
+#image_pro{
+  width: 70%;
+  height: 40%;
+}
 #wrapper {
   width:969px;
   margin:0 auto;
@@ -634,10 +643,10 @@ label.error {
   background-color: #fff;
   width:70%;
   margin-top: 5%;
-  border-top: 30px solid #fff;
+  border-top: 30px solid #97AC9E;
   border-bottom: 60px solid transparent;
-  border-right: 80px solid #fff;
-  border-left: 80px solid #fff;
+  border-right: 80px solid #97AC9E;
+  border-left: 80px solid #97AC9E;
   background-color: black;
 }
 #btn_pdf{
@@ -645,12 +654,6 @@ label.error {
   background-color: green;
   width: 15%;
   height: 15%;
-}
-#pdf{
-  border-color: black;
-  border-style: outset;
-  color: black;
-  background-color: #646668;
 }
 #botones{
   background-color: green;
@@ -664,16 +667,26 @@ label.error {
 }
 #btn{
   display: flex;
-  justify-content: flex-end;
-  margin-top: 40px;
-  margin-right: 20px;
-  height: 40%;
+  justify-content: center;
+  text-align: left;
+  height: 10%;
+  background-color: black;
 }
 #btn_next{
-  background-color: transparent;
+  background-color: black;
+  height: 5%;
+  width: 80%;
   border-color: transparent;
-  color: green;
+}
+#pre_tem{
+  background-color: black;
+  height: 5%;
+  width: 100%;
+  border-color: transparent;
 }
 #myimage{
   width: 10%;
+}
+#name{
+  display: flex;
 }

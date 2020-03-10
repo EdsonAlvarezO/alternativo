@@ -14,8 +14,10 @@ include __DIR__ .  '/bd_curri.php';
                     header("Location: ./pdf.php?id_curriculum=$id_curriculum&template=2");
               }else if(isset($_POST['sendEmail'])){
                     header("Location: ./enviar_correo.php?id_curriculum=$id_curriculum&template=2");
+              }else if(isset($_POST['next_temp'])){
+                header("Location: ./template_three.php?id_curriculum=$id_curriculum");
               }else{
-                  header("Location: ./template_three.php?id_curriculum=$id_curriculum");
+                header("Location: ./template_one.php?id_curriculum=$id_curriculum");
               }
         }
   $info_personal = $con->runQuery('SELECT * FROM curriculums WHERE id_user = $1', [$id_user]);
@@ -28,13 +30,14 @@ include __DIR__ .  '/bd_curri.php';
     $info_contributions = $con->runQuery('SELECT * FROM contributions WHERE id_curriculum = $1', [$id_curriculum]);
     $info_projects = $con->runQuery('SELECT * FROM projects WHERE id_curriculum >= $1', [$id_curriculum]);
 ?>
-<div id="btn">
-  <form method="post">
-    <div>
-      <button id="btn_next" class="btn btn-primary" name="next_temp">Next Template</button>
+<form method="post" id="btn">
+    <div id="all_but">
+      <button id="btn_next" class="btn btn-primary" name="pre_temp">Previous Template</button>
+    </div>
+    <div id="all_but">
+      <button id="pre_tem" class="btn btn-primary" name="next_temp">Next template</button>
     </div>
   </form>
-</div>
 <div class="all_template">
   <div class="template">
   <div id="wrapper">
@@ -43,7 +46,7 @@ include __DIR__ .  '/bd_curri.php';
         <div class="paper-top"></div>
         <div id="paper-mid">
           <div class="entry">
-            <img class="portrait" src="<?php echo $image[0]['url'] ?>"/>
+            
             <div class="self">
               <div class="arrow-right"></div>
               <h1 class="name"><?php echo $info_personal[0]['name_user']." ".$info_personal[0]['middle_name']." ".$info_personal[0]['last_name'] ?><br />
@@ -63,7 +66,7 @@ include __DIR__ .  '/bd_curri.php';
                 <li>
                   <div id="btn_pdf">
                     <form method="post">
-                        <button id="pdf" class="btn btn-primary" name="createPDF">Download PDF</button>
+                        <button id="pdf" class="btn btn-primary smooth-scroll mr-2" name="createPDF">Download PDF</button>
                         <button id="pdf" class="btn btn-primary" name="sendEmail">SEND EMAIL</button>
                     </form>
                   </div>
@@ -75,6 +78,7 @@ include __DIR__ .  '/bd_curri.php';
               </ul>
             </div>
           </div>
+          <img id="image_pro" src="<?php echo $image[0]['url'] ?>"/>
           <div class="entry">
             <h2>About me:</h2><br>
             <p><?php echo $info_personal[0]['about_you'] ?></p>
@@ -114,7 +118,6 @@ include __DIR__ .  '/bd_curri.php';
                     <li>Name:<?php echo $skill['name'] ?></li>
                     <li>
                       <div class="progress">
-
                         <div class="progress-bar progress-bar-primary aos-init aos-animate" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $skill['level'] ?>%; margin-top: 2%; background-color: green;">
                         </div><span class="progress-value"><?php echo $skill['level'] ?>%</span>
                       </div>

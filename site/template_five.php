@@ -3,7 +3,7 @@ require_once './shared/header.php';
 require_once  './shared/guard.php';
 require_once  './shared/db.php';
 ?>
-<link rel="stylesheet" type="text/css" href="./css/template_one.css">
+<link rel="stylesheet" type="text/css" href="./css/template_five.css">
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <?php
 	$id_curriculum = $_GET['id_curriculum'];
@@ -19,15 +19,20 @@ require_once  './shared/db.php';
 	$info_projects = $con->runQuery('SELECT * FROM projects WHERE id_curriculum >= $1', [$id_curriculum]);
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		if (isset($_POST['createPDF'])) {
-				header("Location: ./pdf.php?id_curriculum=$id_curriculum&template=1");
+				header("Location: ./pdf.php?id_curriculum=$id_curriculum&template=5");
 			}else if(isset($_POST['sendEmail'])){
-				header("Location: ./enviar_correo.php?id_curriculum=$id_curriculum&template=1");
-			}else{
-				header("Location: ./template_two.php?id_curriculum=$id_curriculum");
-		}
+				header("Location: ./enviar_correo.php?id_curriculum=$id_curriculum&template=5");
+			}else if(isset($_POST['next_temp'])){
+                 header("Location: ./template_six.php?id_curriculum=$id_curriculum");
+            }else{
+                header("Location: ./template_4.php?id_curriculum=$id_curriculum");
+            }  
 	}
 ?>
 <form method="post" id="btn">
+    <div id="all_but">
+      <button id="btn_next" class="btn btn-primary" name="pre_temp">Previous Template</button>
+    </div>
     <div id="all_but">
       <button id="pre_tem" class="btn btn-primary" name="next_temp">Next template</button>
     </div>
@@ -47,11 +52,12 @@ require_once  './shared/db.php';
 							<div class="yui-gc">
 								<div class="yui-u first">
 									</div>
+									<img src="<?php echo $image[0]['url'] ?>" id="img">
 									<div id="myimage">
 										<div class="position">
-											<h1><?php echo $info_personal[0]['name_user']." ".$info_personal[0]['middle_name']." ".$info_personal[0]['last_name'] ?></h1>
-											<img src="<?php echo $image[0]['url'] ?>" id="img">
-											<h2><?php echo $info_personal[0]['position_user'] ?></h2>
+											<h1 id="name"><?php echo $info_personal[0]['name_user']." ".$info_personal[0]['middle_name']." ".$info_personal[0]['last_name'] ?></h1>
+											
+											<h2 id="my_position"><?php echo $info_personal[0]['position_user'] ?></h2>
 											<h5>Email:<?php echo $info_contact[0]['email'] ?></h5>
 											<h5>Phone:<?php echo $info_contact[0]['phone'] ?></h5>
 											<h5>Street:<?php echo $info_contact[0]['street'] ?></h5>
@@ -85,7 +91,7 @@ require_once  './shared/db.php';
 																<div class="job">
 																	<h2>Name: <?php echo $skill['name'] ?></h2>
 																	 <div class="progress">
-												                        <div class="progress-bar progress-bar-primary aos-init aos-animate" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $skill['level'] ?>%; margin-top: 2%; background-color: #401E33;">
+												                        <div class="progress-bar progress-bar-primary aos-init aos-animate" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $skill['level'] ?>%; margin-top: 2%; background-color: #66A7BD;">
 												                        </div><span class="progress-value"><?php echo $skill['level'] ?>%</span>
 												                      </div>
 																</div>

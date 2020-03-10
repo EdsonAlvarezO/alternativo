@@ -1,5 +1,5 @@
 <?php
-require_once './shared/header.php';
+require_once  './shared/header.php';
 require_once  './shared/guard.php';
 require_once  './shared/db.php';
 ?>
@@ -11,10 +11,11 @@ require_once  './shared/db.php';
                                         header("Location: ./pdf.php?id_curriculum=$id_curriculum&template=4");
                             }else if(isset($_POST['sendEmail'])){
                                         header("Location: ./enviar_correo.php?id_curriculum=$id_curriculum&template=4");
-                            }else{
-                                header("Location: ./template_two.php?id_curriculum=$id_curriculum");
-                            }
-                }
+                            }else if(isset($_POST['next_temp'])){
+                                header("Location: ./template_five.php?id_curriculum=$id_curriculum");
+                              }else{
+                                header("Location: ./template_three.php?id_curriculum=$id_curriculum");
+                              }                }
        $info_personal = $con->runQuery('SELECT * FROM curriculums WHERE id_user = $1', [$id_user]);
         $info_contact = $con->runQuery('SELECT * FROM contact WHERE id_curriculum = $1', [$id_curriculum]);
         $info_companys = $con->runQuery('SELECT * FROM companys WHERE id_curriculum = $1', [$id_curriculum]);
@@ -26,6 +27,14 @@ require_once  './shared/db.php';
         $info_projects = $con->runQuery('SELECT * FROM projects WHERE id_curriculum >= $1', [$id_curriculum]);
 ?>
 <link rel="stylesheet" type="text/css" href="./css/template_4.css">
+<form method="post" id="btn">
+    <div id="all_but">
+      <button id="btn_next" class="btn btn-primary" name="pre_temp">Previous Template</button>
+    </div>
+    <div id="all_but">
+      <button id="pre_tem" class="btn btn-primary" name="next_temp">Next template</button>
+    </div>
+  </form>
 <body>
     <div id="page-wrap">
         <img src="Images/ata.jpg" alt="Photo of Cthulu" id="pic" />
@@ -49,7 +58,7 @@ require_once  './shared/db.php';
         </div> 
         <div id="objective">
             <p>
-                <?php echo $info_personal[0]['about_you'] ?>
+                About me:<?php echo $info_personal[0]['about_you'] ?>
             </p>
         </div>
         <div class="clear"></div>
@@ -71,44 +80,66 @@ require_once  './shared/db.php';
             <dd class="clear"></dd>
             
             <dt>Skills</dt>
-            <dd>
-                <h2>Office skills</h2>
-                <p>Office and records management, database administration, event organization, customer support, travel coordination</p>
-                
-                <h2>Computer skills</h2>
-                <p>Microsoft productivity software (Word, Excel, etc), Adobe Creative Suite, Windows</p>
+            <dd>    
+                <?php foreach ($info_skills as $skill) {?>
+                <div class="progress-container progress-primary"><span class="progress-badge"><?php echo $skill['name'] ?></span>
+                     <div class="progress">
+                            <div class="progress-bar progress-bar-primary aos-init aos-animate" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $skill['level'] ?>%;">
+                            </div><span class="progress-value"><?php echo $skill['level'] ?>%</span>
+                    </div>
+                </div>
+              <?php } ?>
             </dd>
             
             <dd class="clear"></dd>
             
             <dt>Experience</dt>
             <dd>
-                <h2>Doomsday Cult <span>Leader/Overlord - Baton Rogue, LA - 1926-2010</span></h2>
-                <ul>
-                    <li>Inspired and won highest peasant death competition among servants</li>
-                    <li>Helped coordinate managers to grow cult following</li>
-                    <li>Provided untimely deaths to all who opposed</li>
+                <?php foreach ($info_companys as $exp) {?>
+                    <h2><?php echo $exp['company_name'] ?><span><?php echo $exp['time_period'] ?></span></h2>
+                    <ul>
+                    <li><?php echo $exp['position_company'] ?></li>
+                    <li><?php echo $exp['website'] ?></li>
                 </ul>
-                
-                <h2>The Watering Hole <span>Bartender/Server - Milwaukee, WI - 2009</span></h2>
-                <ul>
-                    <li>Worked on grass-roots promotional campaigns</li>
-                    <li>Reduced theft and property damage percentages</li>
-                    <li>Janitorial work, Laundry</li>
-                </ul> 
+                 <?php } ?>
             </dd>
             
             <dd class="clear"></dd>
             
             <dt>Hobbies</dt>
-            <dd>World Domination, Deep Sea Diving, Murder Most Foul</dd>
+            <dd>
+             <?php foreach ($info_hobbies as $hobbie) {?>
+                 <ul>
+                    <li><?php echo $hobbie['name_hobbie'] ?></li>
+                    <li><?php echo $hobbie['url'] ?></li>
+                </ul>
+            <?php } ?>
+            </dd>
+            <dd class="clear"></dd>
+            <dt>Contributions</dt>
+            <dd>
+                 <?php foreach ($info_contributions as $cont) {?>
+                    <h2><?php echo $cont['name_contr'] ?><span><?php echo $degree['time_period'] ?></span></h2>
+                    <ul>
+                        <li class="h5"><?php echo $degree['description'] ?></li>
+                        <li><?php echo $degree['website'] ?></li>
+                    </ul>
+             <?php } ?>
+            </dd>
             
             <dd class="clear"></dd>
-            
-            <dt>References</dt>
-            <dd>Available on request</dd>
-            
-            <dd class="clear"></dd>
+
+            <dt>Projects</dt>
+            <dd>
+                <?php foreach ($info_projects as $project) {?>
+                <h2><?php echo $project['name_project'] ?></h2>
+                <ul>
+                  <li class="h5"><?php echo $project['plataform'] ?></li>
+                  <li>Description: <?php echo $project['description'] ?></li>
+                  <li href="<?php echo $project['url'] ?>">URL: <?php echo $project['url'] ?></li>
+                </ul>
+        <?php } ?>
+            </dd>
         </dl>
         
         <div class="clear"></div>
@@ -116,5 +147,3 @@ require_once  './shared/db.php';
     </div>
 
 </body>
-
-</html>

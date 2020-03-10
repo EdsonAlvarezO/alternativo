@@ -20,6 +20,7 @@ require_once './shared/sessions.php';
         }
     }
 ?>
+<?php if (!isset($_SESSION['user_id'])) { ?>
 <div class="logform">
   <form class="form-lognin" method="POST">
         <h1 class="h3 mb-3 font-weight-normal" id="titlelog">PLEASE LOGIN</h1>
@@ -30,7 +31,7 @@ require_once './shared/sessions.php';
           <input type="password" name = "password" type="password" placeholder="Password" id="inputPassword" class="form-control" placeholder="Password" required="">
         </div>
         <div class="form-control">
-        <button class="btn btn-lg btn-primary btn-block btn-sm" type="submit">LOG IN</button>
+        <button class="btn btn-lg btn-success btn-block btn-sm" type="submit">LOG IN</button>
           <?php if(!empty($errors)){ ?>
               <div class="alert alert-danger" role="alert" id="alerta_log">
                   <?php echo $errors ?>
@@ -39,6 +40,10 @@ require_once './shared/sessions.php';
         </div>
   </form>
 </div>
+<?php }else{
+      header('Location: /template_one.php');
+      }  
+?>
 </section>
 <?php require_once './shared/footer.php' ?>
 

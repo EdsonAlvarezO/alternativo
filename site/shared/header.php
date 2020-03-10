@@ -25,14 +25,14 @@ require_once './shared/sessions.php';
   <form class="form-inline">
     <?php if (isset($_SESSION['user_id'])) { ?>
             <label><?= $_SESSION['user_email'] ?></label>
-            <a class="btn btn-secondary" href="/logout.php">
+            <a class="btn btn-primarys" href="/logout.php">
                 Log out
             </a>
           <?php } else { ?>
-            <a class="btn btn-secondary" href="/register.php">
-              <strong>Sign up</strong>
+            <a class="btn btn-primarys"  href="/register.php">
+              Sign up
             </a>
-            <a class="btn btn-secundary" href="/">
+            <a class="btn btn-primarys"  href="/">
               Log in
             </a>
           <?php } ?>

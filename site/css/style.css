@@ -16,6 +16,9 @@ body{
 	height: 55px;
 	align-items: flex-end;
 }
+.btn-primarys {
+    border-color: #2e6da4;
+  }
 #btn_next{
 	display: flex;
 	justify-content: flex-end;
@@ -52,11 +55,11 @@ body{
 	height: 40px;
 }
 .form-lognin {
- 	width: 100%;
- 	max-width: 330px;
+ 	width: 30%;
  	padding: 15px;
  	margin: 0 auto;
  	color: #fff;
+ 	background-color: black;
 }
 .form-lognin.checkbox {
   font-weight: 400;
@@ -78,21 +81,23 @@ body{
 }
 .form-lognin input[type="password"] {
   margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  width: 100%;
 }
 .logform{
 	display: flex;
-	height: 560px;
+	height: 700px;
 	align-items: center;
 }
 #titlelog{
 	text-align: center;
-	color: black;
+	color: #fff;
 	font-style: oblique;
 }
 #alerta_log{
 	margin: 4px;
+}
+#buttones{
+	border-color: black;
 }
 #e{
 	display: flex;
@@ -160,4 +165,25 @@ body{
 	display: flex;
 	justify-content: flex-end;
 	width: 60%;
+}
+.carta{
+	background-color: black;
+	display: flex;
+	justify-content: center;
+	height: 50%;
+	align-items: center;
+}
+.message{
+	color: #fff;
+	font-style: initial;
+	font-size: 40px;
+}
+.OK{
+	display: flex;
+	justify-content: center;
+}
+.btn-ok{
+	font-size: 40px;
+	background-color: green;
+	color: #fff;
 }
