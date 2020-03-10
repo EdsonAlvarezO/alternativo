@@ -19,9 +19,9 @@ require_once  './shared/db.php';
 	$info_projects = $con->runQuery('SELECT * FROM projects WHERE id_curriculum >= $1', [$id_curriculum]);
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		if (isset($_POST['createPDF'])) {
-				header("Location: ./pdf.php?id_curriculum=$id_curriculum&template=5");
+				header("Location: ./pdf.php?id_curriculum=$id_curriculum&template=8");
 			}else if(isset($_POST['sendEmail'])){
-				header("Location: ./enviar_correo.php?id_curriculum=$id_curriculum&template=5");
+				header("Location: ./enviar_correo.php?id_curriculum=$id_curriculum&template=8");
 			}else{
                 header("Location: ./template_seven.php?id_curriculum=$id_curriculum");
             }  
@@ -86,7 +86,7 @@ require_once  './shared/db.php';
 																<div class="job">
 																	<h2>Name: <?php echo $skill['name'] ?></h2>
 																	 <div class="progress">
-												                        <div class="progress-bar progress-bar-primary aos-init aos-animate" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $skill['level'] ?>%; margin-top: 2%; background-color: #66A7BD;">
+												                        <div class="progress-bar progress-bar-primary aos-init aos-animate" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $skill['level'] ?>%; margin-top: 2%; background-color: #fff;">
 												                        </div><span class="progress-value"><?php echo $skill['level'] ?>%</span>
 												                      </div>
 																</div>
@@ -103,7 +103,6 @@ require_once  './shared/db.php';
 																	<h2>Hobbie: <?php echo $hobbie['name_hobbie'] ?></h2>
 																	<h3>URL: <?php echo $hobbie['url'] ?></h3>
 															</div>
-															<p>-------------------------------------------------------------</p>
 														<?php } ?>
 												</div>
 											</div>
@@ -119,7 +118,6 @@ require_once  './shared/db.php';
 																		<h3>Description: <?php echo $project['description'] ?></h3>
 																		<h3>URL: <?php echo $project['url'] ?></h3>
 																</div>
-																<p>-------------------------------------------------------------</p>
 															<?php } ?>
 													</div>
 												</div>
@@ -136,7 +134,6 @@ require_once  './shared/db.php';
 																<h3>Description: <?php echo $exp['description_company'] ?></h3>
 																<h3>Websites: <?php echo $exp['website'] ?></h3>
 															</div>
-															<p>-------------------------------------------------------------</p>
 														<?php } ?>
 													</div>
 												</div>
@@ -151,7 +148,6 @@ require_once  './shared/db.php';
 																	<h3>Description: <?php echo $cont['description'] ?></h3>
 																	<h3>URL: <?php echo $cont['url'] ?></h3>
 															</div>
-															<p>-------------------------------------------------------------</p>
 														<?php } ?>
 													</div>
 												</div>

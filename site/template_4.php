@@ -37,7 +37,7 @@ require_once  './shared/db.php';
   </form>
 <body>
     <div id="page-wrap">
-        <img src="Images/ata.jpg" alt="Photo of Cthulu" id="pic" />
+        <img id="pic" alt="Photo of Cthulu"  src="<?php echo $image[0]['url'] ?>"/>
         <div id="btn_pdf">
             <form method="post">
                 <button id="pdf" class="btn btn-success" name="createPDF">Download PDF</button>

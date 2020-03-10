@@ -1,5 +1,4 @@
 <?php
-
 include __DIR__ .  '/templates.php';
 require_once __DIR__ . '/vendor/mpdf/mpdf/src/HTMLParserMode.php';
 require_once  './shared/db.php';
@@ -48,8 +47,8 @@ $info_projects = $con->runQuery('SELECT * FROM projects WHERE id_curriculum >= $
 			$HTML = getTemplate_Seven($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects);
 			pdf($HTML,$css);
 		}else if($num_template == 8){
-			$css = file_get_contents('./css/template_eight.css');
-			$HTML = getTemplate_Eigth($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects);
+			$css = file_get_contents('./css/template_eigth.css');
+			$HTML = getTemplate_Eight($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects);
 			pdf($HTML,$css);
 		}
 

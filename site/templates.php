@@ -1157,6 +1157,7 @@ function getTemplate_Seven($info_personal,$info_contact,$info_companys,$info_ski
     </section>";
     return $template_one;
   }
+
   function getTemplate_Eight($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects){
     $template_one = "<section class='section'>
           <div class='all_template'>
@@ -1165,6 +1166,7 @@ function getTemplate_Seven($info_personal,$info_contact,$info_companys,$info_ski
                 <div id='inner'>
                 <div id='hd' style='display:flex;'>
                   <div class='yui-gc'>
+                        <img src=".$image[0]['url']." id='img'>
                       <div id='myimage'>
                         <div class='position'>
                           <h1 id='name'>".$info_personal[0]['name_user'].' '.$info_personal[0]['middle_name'].' '.$info_personal[0]['last_name']."</h1>
@@ -1178,7 +1180,7 @@ function getTemplate_Seven($info_personal,$info_contact,$info_companys,$info_ski
                           <h5>Github:".$info_contact[0]['github'] ."</h5>
                         </div>
                       </div>
-                      <img src=".$image[0]['url']." id='img'>
+                    
                   </div>
                 </div>
                 <div id='bd'>
@@ -1206,7 +1208,7 @@ function getTemplate_Seven($info_personal,$info_contact,$info_companys,$info_ski
                                     $template_one .= "<div class='job'>
                                       <h2>Name:".$skill['name'] ."</h2>
                                        <div class='progress'>
-                                                    <div class='progress-bar progress-bar-primary aos-init aos-animate' data-aos='progress-full' data-aos-offset='10' data-aos-duration='2000' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='  height: 15px; width:". $skill['level']."%; margin-top: 2%; background-color: green;'>
+                                                    <div class='progress-bar progress-bar-primary aos-init aos-animate' data-aos='progress-full' data-aos-offset='10' data-aos-duration='2000' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='  height: 15px; width:". $skill['level']."%; margin-top: 2%; background-color: #fff;'>
                                                     </div><span class='progress-value'>".$skill['level']."%'</span>
                                                   </div>
                                     </div>";

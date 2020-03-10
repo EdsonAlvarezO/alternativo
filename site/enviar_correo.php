@@ -11,10 +11,27 @@ require 'phpmailer/Exception.php';
 require 'phpmailer/PHPMailer.php';
 require 'phpmailer/SMTP.php';
 require 'vendor/autoload.php';
-        
+        $num_template = $_GET['template'];      
         $id_curriculum = $_GET['id_curriculum'];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            header("Location: ./template_one.php?id_curriculum=$id_curriculum");
+            if($num_template == 1){
+                header("Location: ./template_one.php?id_curriculum=$id_curriculum");
+            }else if($num_template == 2){
+                header("Location: ./template_two.php?id_curriculum=$id_curriculum");
+            }else if($num_template == 3){
+                header("Location: ./template_three.php?id_curriculum=$id_curriculum");
+            }else if($num_template == 4){
+               header("Location: ./template_4.php?id_curriculum=$id_curriculum");
+            }else if($num_template == 5){
+                header("Location: ./template_five.php?id_curriculum=$id_curriculum");
+            }else if($num_template == 6){
+                header("Location: ./template_six.php?id_curriculum=$id_curriculum");
+            }else if($num_template == 7){
+                header("Location: ./template_seven.php?id_curriculum=$id_curriculum");
+            }else if($num_template == 8){
+                header("Location: ./template_eigth.php?id_curriculum=$id_curriculum");
+            }
+            
         }
         $info_personal = $con->runQuery('SELECT * FROM curriculums WHERE id_user = $1', [$id_user]);
         $info_contact = $con->runQuery('SELECT * FROM contact WHERE id_curriculum = $1', [$id_curriculum]);
@@ -25,13 +42,30 @@ require 'vendor/autoload.php';
         $image = $con->runQuery('SELECT * FROM images WHERE id_user = $1', [$id_user]);
         $info_contributions = $con->runQuery('SELECT * FROM contributions WHERE id_curriculum = $1', [$id_curriculum]);
         $info_projects = $con->runQuery('SELECT * FROM projects WHERE id_curriculum >= $1', [$id_curriculum]);
-        $num_template = $_GET['template'];
         $user_gmail = $info_contact[0]['email'];
 if($num_template == 1){
     $HTML = getTemplate_One($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects);
     send_email($HTML,$user_gmail);
 }else if($num_template == 2){
     $HTML = getTemplate_Two($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects);
+    send_email($HTML,$user_gmail);
+}else if($num_template == 3){
+    $HTML = getTemplate_Three($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects);
+    send_email($HTML,$user_gmail);
+}else if($num_template == 4){
+    $HTML = getTemplate_Four($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects);
+    send_email($HTML,$user_gmail);
+}else if($num_template == 5){
+    $HTML = getTemplate_Five($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects);
+    send_email($HTML,$user_gmail);
+}else if($num_template == 6){
+    $HTML = getTemplate_Six($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects);
+    send_email($HTML,$user_gmail);
+}else if($num_template == 7){
+    $HTML = getTemplate_Seven($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects);
+    send_email($HTML,$user_gmail);
+}else if($num_template == 8){
+    $HTML = getTemplate_Eigth($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects);
     send_email($HTML,$user_gmail);
 }
 function send_email($HTML,$email){
