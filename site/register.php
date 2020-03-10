@@ -43,7 +43,6 @@ require_once './shared/db.php';
         </div>
         <div class=form-control>
           <button class="btn btn-lg btn-success btn-block btn-sm" type="submit">SIGN IN</button>
-          <button class="btn btn-lg btn-secondary btn-block btn-sm" href="/">CANCEL</button>
           <?php if(!empty($errors)){ ?>
             <div class="alert alert-danger" role="alert" id="alerta_log">
                 <?php echo $errors ?>

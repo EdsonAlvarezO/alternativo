@@ -18,6 +18,7 @@ $info_degrees = $con->runQuery('SELECT * FROM degrees WHERE id_curriculum = $1',
 $image = $con->runQuery('SELECT * FROM images WHERE id_user = $1', [$id_user]);
 $info_contributions = $con->runQuery('SELECT * FROM contributions WHERE id_curriculum = $1', [$id_curriculum]);
 $info_projects = $con->runQuery('SELECT * FROM projects WHERE id_curriculum >= $1', [$id_curriculum]);
+
 		if($num_template ==1){
 			$css = file_get_contents('./css/template_one.css');
 			$HTML = getTemplate_One($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects);
@@ -37,6 +38,18 @@ $info_projects = $con->runQuery('SELECT * FROM projects WHERE id_curriculum >= $
 		}else if($num_template == 5){
 			$css = file_get_contents('./css/template_five.css');
 			$HTML = getTemplate_Five($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects);
+			pdf($HTML,$css);
+		}else if($num_template == 6){
+			$css = file_get_contents('./css/template_six.css');
+			$HTML = getTemplate_Six($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects);
+			pdf($HTML,$css);
+		}else if($num_template == 7){
+			$css = file_get_contents('./css/template_seven.css');
+			$HTML = getTemplate_Seven($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects);
+			pdf($HTML,$css);
+		}else if($num_template == 8){
+			$css = file_get_contents('./css/template_eight.css');
+			$HTML = getTemplate_Eigth($info_personal,$info_contact,$info_companys,$info_skills,$info_hobbies,$info_degrees,$image,$info_contributions,$info_projects);
 			pdf($HTML,$css);
 		}
 
