@@ -3,7 +3,7 @@ require_once './shared/header.php';
 require_once  './shared/guard.php';
 require_once  './shared/db.php';
 ?>
-<link rel="stylesheet" type="text/css" href="./css/template_five.css">
+<link rel="stylesheet" type="text/css" href="./css/template_eigth.css">
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <?php
 	$id_curriculum = $_GET['id_curriculum'];
@@ -29,7 +29,7 @@ require_once  './shared/db.php';
 ?>
 <form method="post" id="btn">
     <div id="all_but">
-      <button id="btn_next" class="btn btn-primary" name="pre_temp">Previous Template</button>
+      <button id="pre_tem" class="btn btn-primary">Previous template</button>
     </div>
   </form>
 <section class="section">

@@ -30,7 +30,7 @@ require_once  './shared/db.php';
 <link href="css/template_three.css" rel="stylesheet">
   <form method="post" id="btn">
     <div id="all_but">
-      <button id="btn_next" class="btn btn-primary" name="pre_temp">Previous Template</button>
+      <button id="btn_nexts" class="btn btn-primary" name="pre_temp">Previous Template</button>
     </div>
     <div id="all_but">
       <button id="pre_tem" class="btn btn-primary" name="next_temp">Next template</button>

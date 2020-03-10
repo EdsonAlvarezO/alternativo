@@ -5,7 +5,7 @@
 
 /* //-- yui-grids style overrides -- */
 body { font-family: Georgia; color: #444; }
-#inner { padding: 10px 80px; margin: 80px auto; background: #565657; border: solid #666; border-width: 8px 0 2px 0; }
+#inner { padding: 10px 80px; margin: 80px auto; background-image: linear-gradient(to right top, #312a2b, #562c31, #792931, #9a242b, #ba1e1e); border: solid #666; border-width: 8px 0 2px 0; }
 .yui-gf { margin-bottom: 2em;  }
 *{
 	color: #fff;
@@ -61,18 +61,11 @@ a#pdf:hover { background: #222; }
   height: 10%;
   background-color: black;
 }
-#btn_nexts{
+#btn_next{
   background-color: black;
+  height: 5%;
+  width: 80%;
   border-color: transparent;
-  margin-top: 6%;
-}
-#pre_tem{
-  background-color: black;
-  border-color: transparent;
-  color: #fff;
-  margin-bottom: 15%;
-  text-align: center;
-  margin-top: 7%;
 }
 .almacen_template{
 	display: flex;
@@ -89,9 +82,9 @@ a#pdf:hover { background: #222; }
 	justify-content: flex-start;
 }
 #img{
-	width: 200px;
-	background-color: #fff;
+	width: 500px;
 	justify-content: flex-end;
+	margin-left: 10%;
 }
 #btn_pdf{
 	display: flex;
@@ -102,8 +95,9 @@ a#pdf:hover { background: #222; }
 	border-style: outset;
 }
 .title{
-	color: #66A7BD;
-	font-size: 20px;
+	color: #fff;
+	font-style: oblique;
+	font-size: 33px;
 }
 .skills{
 	width: 40%;
@@ -120,16 +114,17 @@ a#pdf:hover { background: #222; }
 }
 #btn{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: left;
-  height: 10%;
+  height: 100%;
 }
-#btn_next{
+#pre_tem{
   background-color: black;
-  height: 5%;
-  width: 80%;
   border-color: transparent;
   color: #fff;
+  margin-bottom: 15%;
+  text-align: center;
+  margin-top: 5%;
 }
 .all_but{
 	display: flex;
@@ -141,8 +136,13 @@ a#pdf:hover { background: #222; }
 	color: #fff;
 }
 .progress{
-	background-color: black;
+	background-color: #fff;
 }
 #name{
-	color: #66A7BD;
+	color: #fff;
+	font-style: oblique;
+}
+#barras{
+	color: black;
+
 }

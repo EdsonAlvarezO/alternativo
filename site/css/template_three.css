@@ -32,17 +32,18 @@
   height: 10%;
   background-color: black;
 }
-#btn_next{
+#btn_nexts{
   background-color: black;
-  height: 5%;
-  width: 80%;
   border-color: transparent;
+  margin-top: 6%;
 }
 #pre_tem{
   background-color: black;
-  height: 5%;
-  width: 100%;
   border-color: transparent;
+  color: #fff;
+  margin-bottom: 15%;
+  text-align: center;
+  margin-top: 7%;
 }
 .bootstrap-switch .bootstrap-switch-container {
   display: -webkit-inline-box;

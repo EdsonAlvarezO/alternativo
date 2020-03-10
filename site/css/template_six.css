@@ -61,18 +61,20 @@ a#pdf:hover { background: #222; }
   height: 10%;
   background-color: black;
 }
-#btn_next{
+#btn_nexts{
   background-color: black;
-  height: 5%;
-  width: 80%;
   border-color: transparent;
+  margin-top: 6%;
 }
 #pre_tem{
   background-color: black;
-  height: 5%;
-  width: 100%;
   border-color: transparent;
+  color: #fff;
+  margin-bottom: 15%;
+  text-align: center;
+  margin-top: 7%;
 }
+
 .almacen_template{
 	display: flex;
 	justify-content: center;
@@ -131,15 +133,7 @@ a#pdf:hover { background: #222; }
   border-color: transparent;
   color: #fff;
 }
-#pre_tem{
-  background-color: black;
-  height: 5%;
-  width: 100%;
-  border-color: transparent;
-  color: #fff;
-  margin-bottom: 15%;
-  text-align: center;
-}
+
 .all_but{
 	display: flex;
 }

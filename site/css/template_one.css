@@ -59,7 +59,7 @@ a#pdf:hover { background: #222; }
   height: 10%;
   background-color: black;
 }
-#btn_next{
+#btn_nextd{
   background-color: black;
   height: 5%;
   width: 80%;
@@ -116,7 +116,6 @@ a#pdf:hover { background: #222; }
 #btn{
   display: flex;
   justify-content: flex-end;
-  margin-top: 40px;
   margin-right: 20px;
   height: 40%;
 }
